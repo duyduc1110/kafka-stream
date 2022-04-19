@@ -23,7 +23,7 @@ def producing():
 
 
 def consuming():
-    consumer = KafkaConsumer(bootstrap_servers=KAFKA_HOST)
+    consumer = KafkaConsumer('app_message', bootstrap_servers=KAFKA_HOST)
     for msg in consumer:
         mess = json.loads(msg.value)
         request_id = mess['request_id']
